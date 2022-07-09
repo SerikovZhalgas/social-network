@@ -6,7 +6,7 @@ const ProfileInfo = () => {
     return (
         <div>
             <div>
-                <img src="https://get-edu.kz/wp-content/uploads/2020/04/helpbox-contact.jpg"/>
+                <img className={s.img} src="https://get-edu.kz/wp-content/uploads/2020/04/helpbox-contact.jpg" alt='wow'/>
             </div>
             <div className={s.descriptionBlock}>
                 ava+description

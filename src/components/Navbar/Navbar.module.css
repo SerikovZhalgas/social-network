@@ -6,9 +6,32 @@
 
 .item a{
   color: white;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .item a.activeLink{
   color: gold;
+}
+
+.itemFriends{
+  margin-top: 30px;
+}
+
+.friendTitle{
+  display: flex;
+  justify-content:center;
+  color: white;
+}
+
+.friendItem{
+  display: flex;
+  justify-content: center;
+
+}
+
+.friendImg{
+  width: 30px;
+  margin: 5px;
+  border-radius: 100px;
+  align-self: center;
 }
