@@ -2,6 +2,7 @@ import {v1} from "uuid";
 import {PropsType} from "../components/Profile/MyPosts/Post/Post";
 import {MessageType} from "../components/Dialogs/Message/Message";
 import {DialogItemType} from "../components/Dialogs/DialogItem/DialogItem";
+import rerenderEntireTree from "../render";
 
 export type StateProps = {
     profilePage:ProfilePageType
@@ -56,6 +57,16 @@ let state: StateProps = {
             {id: v1(), name: 'Zhalgas', avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAPe1CYBenBgbZwWb48ifu7G4BodcYUy3eAyX1K5a-OnWpWN7XIUDmX2XJIoZmRf3fZSo&usqp=CAU'}
         ]
     }
+}
+
+export let addPost = (value:string) =>{
+    let newPost = {
+        id: v1(),
+        message: value,
+        likesCount: 0
+    }
+    state.profilePage.posts.push(newPost)
+    rerenderEntireTree(state);
 }
 
 export default state;
