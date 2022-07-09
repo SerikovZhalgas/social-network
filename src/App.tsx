@@ -10,7 +10,8 @@ import Friends from "./components/Navbar/Friends/Friends";
 
 type AppPropsType = {
     state: StateProps
-    addPost:(value:string)=>void
+    addPost:()=>void
+    updateNewPostText: (newText:string)=> void
 }
 
 const App = (props: AppPropsType) => {
@@ -21,7 +22,7 @@ const App = (props: AppPropsType) => {
             <div className="app-wrapper-conent">
                 <Route path={'/friends'} render={() => <Friends/>}/>
                 <Route path={'/dialogs'} render={() => <Dialogs state={props.state.messagePage}/>}/>
-                <Route path={'/profile'} render={() => <Profile state={props.state.profilePage} addPost={addPost}/>}/>
+                <Route path={'/profile'} render={() => <Profile state={props.state.profilePage} addPost={addPost} updateNewPostText={props.updateNewPostText}/>}/>
             </div>
         </div>
     );

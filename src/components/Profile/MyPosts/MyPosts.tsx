@@ -1,25 +1,23 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent} from "react";
 import s from './MyPosts.module.css'
 import Post, {PropsType} from "./Post/Post";
 
 type MyPostsType = {
     posts: PropsType[]
-    addPost: (value:string)=> void
+    addPost: () => void
+    message:string
+    updateNewPostText: (newText:string)=>void
 }
 
-const MyPosts = (props:MyPostsType) => {
+const MyPosts = (props: MyPostsType) => {
 
     let PostsElements = props.posts.map(p => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>)
 
-    const [value, setValue] = useState('')
-
-    let newPostElement = (event:ChangeEvent<HTMLTextAreaElement>) =>{
-        setValue(event.currentTarget.value)
+    const addMyPost = () => {
+        props.addPost()
     }
-
-    let addMyPost = ()=> {
-        props.addPost(value)
-        setValue('')
+    const onPostChange = (e:ChangeEvent<HTMLTextAreaElement>)=>{
+        props.updateNewPostText(e.currentTarget.value)
     }
 
     return (
@@ -27,7 +25,7 @@ const MyPosts = (props:MyPostsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea value={value} onChange={newPostElement}/>
+                    <textarea value={props.message} onChange={onPostChange}/>
                 </div>
                 <div>
                     <button onClick={addMyPost}>Add post</button>
