@@ -1,12 +1,7 @@
 import React from 'react';
 import s from './../Dialogs.module.css'
 import {NavLink} from "react-router-dom";
-
-export type DialogItemType = {
-    name: string
-    id: string
-    avatar: string
-}
+import {DialogItemType} from "../../../Redux/state";
 
 const DialogItem = (props: DialogItemType) => {
     let path = "/dialogs/" + props.id

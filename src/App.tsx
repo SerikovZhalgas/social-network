@@ -5,24 +5,32 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
-import {addPost, StateProps} from "./Redux/state";
+import {StoreType} from "./Redux/state";
 import Friends from "./components/Navbar/Friends/Friends";
 
 type AppPropsType = {
-    state: StateProps
-    addPost:()=>void
-    updateNewPostText: (newText:string)=> void
+    store: StoreType
 }
 
 const App = (props: AppPropsType) => {
+    const state = props.store.getState()
+
     return (
         <div className='app-wrapper'>
             <Header/>
-            <Navbar state={props.state}/>
+            <Navbar state={state}/>
             <div className="app-wrapper-conent">
                 <Route path={'/friends'} render={() => <Friends/>}/>
-                <Route path={'/dialogs'} render={() => <Dialogs state={props.state.messagePage}/>}/>
-                <Route path={'/profile'} render={() => <Profile state={props.state.profilePage} addPost={addPost} updateNewPostText={props.updateNewPostText}/>}/>
+                <Route path={'/dialogs'}
+                       render={() => <Dialogs
+                           state={state.messagePage}
+                       />}/>
+                <Route path={'/profile'}
+                       render={() => <Profile
+                           state={state.profilePage}
+                           addPost={props.store.addPost.bind(props.store)}
+                           updateNewPostText={props.store.updateNewPostText.bind(props.store)}
+                       />}/>
             </div>
         </div>
     );
