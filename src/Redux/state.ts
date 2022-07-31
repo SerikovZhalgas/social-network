@@ -1,4 +1,7 @@
 import {v1} from "uuid";
+import profileReducer, {addPostActionCreator, updateNewPostTextActionCreator} from "./profile-reducer";
+import dialogsReducer, {sendMessageCreator, updateNewCreator} from "./dialogs-reducer";
+//import sidebarReducer from "./sidebar-reducer";
 
 export type PropsType = {
     id: string
@@ -28,6 +31,7 @@ export type ProfilePageType = {
 export type MessagePageType = {
     messageData: MessageType[]
     dialogsData: DialogItemType[]
+    newMessageBody: string
 }
 export type SidebarType = {
     friends: SidebarItemType[]
@@ -37,15 +41,21 @@ export type SidebarItemType = {
     id: string
     avatar: string
 }
-
 export type StoreType = {
     _state: StateProps
-    updateNewPostText: (newText: string)=>void
-    addPost: ()=>void
-    _rerenderEntireTree:()=>void
-    subscribe:(observer:()=>void)=>void
-    getState:()=>StateProps
+    //updateNewPostText: (newText: string) => void
+    //addPost: () => void
+    _rerenderEntireTree: () => void
+    subscribe: (observer: () => void) => void
+    getState: () => StateProps
+    dispatch:(action:ActionsTypes)=>void
+
 }
+
+export type ActionsTypes = ReturnType<typeof addPostActionCreator>
+    | ReturnType<typeof updateNewPostTextActionCreator>
+    | ReturnType<typeof updateNewCreator>
+    | ReturnType<typeof sendMessageCreator>
 
 const store: StoreType = {
     _state: {
@@ -112,7 +122,8 @@ const store: StoreType = {
                     name: 'Zhalgas',
                     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAPe1CYBenBgbZwWb48ifu7G4BodcYUy3eAyX1K5a-OnWpWN7XIUDmX2XJIoZmRf3fZSo&usqp=CAU'
                 }
-            ]
+            ],
+            newMessageBody:''
         },
         sidebar: {
             friends: [
@@ -139,28 +150,39 @@ const store: StoreType = {
             ]
         }
     },
-    updateNewPostText (newText: string) {
-        this._state.profilePage.newPostText = newText
-        this._rerenderEntireTree();
-    },
-    addPost () {
-        const newPost: PropsType = {
-            id: v1(),
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._rerenderEntireTree();
-    },
-    _rerenderEntireTree () {
+    _rerenderEntireTree() {
         console.log('State was changed')
     },
-    subscribe (observer) {
+
+    getState() {
+        return this._state
+    },
+    subscribe(observer) {
         this._rerenderEntireTree = observer
     },
-    getState(){
-        return this._state
+
+    // addPost() {
+    //     const newPost: PropsType = {
+    //         id: v1(),
+    //         message: this._state.profilePage.newPostText,
+    //         likesCount: 0
+    //     }
+    //     this._state.profilePage.posts.push(newPost)
+    //     this._state.profilePage.newPostText = ''
+    //     this._rerenderEntireTree();
+    // },
+    // updateNewPostText(newText: string) {
+    //     this._state.profilePage.newPostText = newText
+    //     this._rerenderEntireTree();
+    // },
+
+    dispatch(action) {
+
+        this._state.profilePage=profileReducer(this._state.profilePage,action)
+        this._state.messagePage=dialogsReducer(this._state.messagePage,action)
+        //this._state.sidebar=sidebarReducer(this._state.sidebar;action)
+
+        this._rerenderEntireTree();
     }
 }
 
