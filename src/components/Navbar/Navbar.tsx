@@ -1,15 +1,15 @@
 import React from "react";
 import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
-import {StateProps} from "../../Redux/state";
+import {SidebarItemType, SidebarType, StateProps} from "../../Redux/store";
 
 export type NavbarPropsType = {
-    state: StateProps
+    sidebar: SidebarType
 }
 
 const Navbar = (props: NavbarPropsType) => {
 
-    let friendsElements = props.state.sidebar.friends.map(f => <img src={f.avatar} className={s.friendImg} alt='Avatar'/>)
+    let friendsElements = props.sidebar.friends.map(f => <img src={f.avatar} className={s.friendImg} alt='Avatar'/>)
 
     return (
         <nav className={s.nav}>
