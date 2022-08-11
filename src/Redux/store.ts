@@ -1,7 +1,6 @@
 import {v1} from "uuid";
 import profileReducer, {addPostActionCreator, updateNewPostTextActionCreator} from "./profile-reducer";
 import dialogsReducer, {sendMessageCreator, updateNewMessageCreator} from "./dialogs-reducer";
-//import sidebarReducer from "./sidebar-reducer";
 
 export type PropsType = {
     id: string

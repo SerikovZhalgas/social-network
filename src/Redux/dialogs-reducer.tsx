@@ -1,10 +1,16 @@
 import {v1} from "uuid";
-import {ActionsTypes, MessagePageType} from "./store";
+import {ActionsTypes, DialogItemType, MessageType} from "./store";
 
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
-let initialState = {
+export type InitialStateType = {
+    messageData: MessageType[]
+    dialogsData: DialogItemType[]
+    newMessageBody: string
+}
+
+let initialState: InitialStateType = {
     messageData: [
         {
             id: v1(),
@@ -59,32 +65,35 @@ let initialState = {
             avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAPe1CYBenBgbZwWb48ifu7G4BodcYUy3eAyX1K5a-OnWpWN7XIUDmX2XJIoZmRf3fZSo&usqp=CAU'
         }
     ],
-    newMessageBody:''
+    newMessageBody: ''
 }
 
-const dialogsReducer = (state:MessagePageType=initialState,action:ActionsTypes) => {
-
+const dialogsReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body
-            return state
+            return {
+                ...state,
+                newMessageBody: action.body
+            }
         case SEND_MESSAGE:
             const body = state.newMessageBody
-            state.newMessageBody = ''
-            state.messageData.push({
-                id: v1(),
-                message: body,
-                myMessage: true,
-                avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAPe1CYBenBgbZwWb48ifu7G4BodcYUy3eAyX1K5a-OnWpWN7XIUDmX2XJIoZmRf3fZSo&usqp=CAU'
-            })
-            return state
+            return  {
+                ...state,
+                newMessageBody:'',
+                messageData:[...state.messageData, {
+                    id: v1(),
+                    message: body,
+                    myMessage: true,
+                    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAPe1CYBenBgbZwWb48ifu7G4BodcYUy3eAyX1K5a-OnWpWN7XIUDmX2XJIoZmRf3fZSo&usqp=CAU'
+                }]
+            }
         default:
             return state
     }
 }
 
 export const sendMessageCreator = () => ({type: SEND_MESSAGE} as const)
-export const updateNewMessageCreator = (body:string) =>
-    ({type: UPDATE_NEW_MESSAGE_BODY,body:body} as const)
+export const updateNewMessageCreator = (body: string) =>
+    ({type: UPDATE_NEW_MESSAGE_BODY, body: body} as const)
 
 export default dialogsReducer

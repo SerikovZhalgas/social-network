@@ -5,18 +5,17 @@ import sidebarReducer from "./sidebar-reducer";
 import {ActionsTypes} from "./store";
 
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     profilePage:profileReducer,
     messagePage:dialogsReducer,
     sidebar:sidebarReducer
 })
 
-type ReducersType = typeof reducers
+type ReducersType = typeof rootReducer
 export type AppStoreType = ReturnType<ReducersType>
 
 export type ReduxStoreType = Store<EmptyObject & AppStoreType, ActionsTypes>
 
-let store = createStore(reducers)
-
+let store = createStore(rootReducer)
 
 export default store
