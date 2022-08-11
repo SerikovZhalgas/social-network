@@ -177,8 +177,8 @@ const store: StoreType = {
 
     dispatch(action) {
 
-        this._state.profilePage=profileReducer(this._state.profilePage,action)
-        this._state.messagePage=dialogsReducer(this._state.messagePage,action)
+        //this._state.profilePage=profileReducer(this._state.profilePage,action)
+        //this._state.messagePage=dialogsReducer(this._state.messagePage,action)
         //this._state.sidebar=sidebarReducer(this._state.sidebar;action)
 
         this._rerenderEntireTree();

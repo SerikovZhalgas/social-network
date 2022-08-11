@@ -3,16 +3,15 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import {Route} from "react-router-dom";
-import {ActionsTypes} from "./Redux/store";
 import Friends from "./components/Navbar/Friends/Friends";
-import {ReduxStoreType} from "./Redux/redux-store";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
+import Users from "./components/Users/Users";
 
 
 type AppPropsType = {
-    store: ReduxStoreType
-    dispatch:(action:ActionsTypes)=>void
+    //store: ReduxStoreType
+    //dispatch:(action:ActionsTypes)=>void
 }
 
 const App = (props: AppPropsType) => {
@@ -30,13 +29,11 @@ const App = (props: AppPropsType) => {
                            //dispatch={props.dispatch}
                        />}/>
                 <Route path={'/profile'}
-                       render={() => <Profile
-                           store={props.store}
-                           //state={props.state.profilePage}
-                           //dispatch={props.dispatch}
-                           //addPost={props.store.addPost.bind(props.store)}
-                           //updateNewPostText={props.store.updateNewPostText.bind(props.store)}
-                       />}/>
+                       render={() => <Profile/>}
+                />
+                <Route path={'/users'}
+                       render={() => <Users/>}
+                />
             </div>
         </div>
     );

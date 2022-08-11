@@ -3,18 +3,18 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import {ActionsTypes} from "./store";
+import usersReducer from "./users-reducer";
 
 
 let rootReducer = combineReducers({
     profilePage:profileReducer,
     messagePage:dialogsReducer,
-    sidebar:sidebarReducer
+    sidebar:sidebarReducer,
+    users:usersReducer
 })
 
 type ReducersType = typeof rootReducer
 export type AppStoreType = ReturnType<ReducersType>
-
-export type ReduxStoreType = Store<EmptyObject & AppStoreType, ActionsTypes>
 
 let store = createStore(rootReducer)
 
