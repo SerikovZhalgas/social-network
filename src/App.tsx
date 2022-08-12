@@ -6,15 +6,15 @@ import {Route} from "react-router-dom";
 import Friends from "./components/Navbar/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
-import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
-type AppPropsType = {
+/*type AppPropsType = {
     //store: ReduxStoreType
     //dispatch:(action:ActionsTypes)=>void
-}
+}*/
 
-const App = (props: AppPropsType) => {
+const App = () => {
 
     return (
         <div className='app-wrapper'>
@@ -32,7 +32,7 @@ const App = (props: AppPropsType) => {
                        render={() => <Profile/>}
                 />
                 <Route path={'/users'}
-                       render={() => <Users/>}
+                       render={() => <UsersContainer/>}
                 />
             </div>
         </div>
