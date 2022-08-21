@@ -8,7 +8,7 @@ export type InitialStateType = {
 
 export type UserType = {
     id: string
-    photoUrl:string
+    photoUrl: string
     followed: boolean
     fullname: string
     status: string
@@ -21,7 +21,7 @@ type LocationType = {
 }
 
 let initialState: InitialStateType = {
-    users: []
+    users: [  ]
 }
 
 const usersReducer = (state: InitialStateType = initialState, action: UsersReducerAC): InitialStateType => {
