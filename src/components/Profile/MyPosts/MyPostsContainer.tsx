@@ -39,7 +39,7 @@ let mapStateToProps = (state:AppStoreType):MapStatePropsType => {
         profilePage: state.profilePage
     }
 }
-let mapDispatchToProps = (dispatch:Dispatch) => {
+let mapDispatchToProps = (dispatch:Dispatch): MapDispatchPropsType => {
     return {
         updateNewPostText: (newText:string)=> {
             dispatch(updateNewPostTextActionCreator(newText))
