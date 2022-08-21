@@ -1,67 +1,47 @@
 import React from "react";
 import {UsersPageType} from "./UsersContainer";
 import styles from './users.module.css'
-import {v1} from "uuid";
+import axios from "axios";
+import userPhoto from '../../assets/images/anonymous-user-flat-icon-vector-18958259.png'
 
-let Users = (props: UsersPageType) => {
-
-    if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: v1(),
-                photoUrl: 'https://static.dw.com/image/60922713_303.jpg',
-                followed: false,
-                fullname: 'Dmitry',
-                status: 'I am a boss',
-                location: {city: 'Minsk', country: 'Belarus'}
-            },
-            {
-                id: v1(),
-                photoUrl: 'https://static.dw.com/image/60922713_303.jpg',
-                followed: true,
-                fullname: 'Zhalgas',
-                status: 'I am a boss too',
-                location: {city: 'Nur-sultan', country: 'Kazakhstan'}
-            },
-            {
-                id: v1(),
-                photoUrl: 'https://static.dw.com/image/60922713_303.jpg',
-                followed: false,
-                fullname: 'Akon',
-                status: 'I am not a boss',
-                location: {city: 'New-York', country: 'USA'}
-            },
-        ])
+class Users extends React.Component<UsersPageType> {
+    componentDidMount(): void {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            this.props.setUsers(response.data.items)
+        })
     }
 
-    return <div>
-        {
-            props.users.map(u => <div key={u.id}>
+    render(): React.ReactNode {
+        return <div>
+            {
+                this.props.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    <img src={u.photoUrl} className={styles.userPhoto} alt={''}/>
+                    <img src={u.photos.small !== null ? u.photos.small : userPhoto} className={styles.userPhoto}
+                         alt={''}/>
                 </div>
                 <div>
                     {u.followed
                         ? <button onClick={() => {
-                            props.unFollow(u.id)
+                            this.props.unFollow(u.id)
                         }}>Unfollow</button>
                         : <button onClick={() => {
-                            props.follow(u.id)
+                            this.props.follow(u.id)
                         }}>Follow</button>}
                 </div>
             </span>
-                <span>
-                <div>{u.fullname}</div>
+                    <span>
+                <div>{u.name}</div>
                 <div>{u.status}</div>
             </span>
-                <span>
-                <div>{u.location.country}</div>
-                <div>{u.location.city}</div>
+                    <span>
+                <div>{"u.location.country"}</div>
+                <div>{"u.location.city"}</div>
             </span>
-            </div>)
-        }
-    </div>
+                </div>)
+            }
+        </div>
+    }
 }
 
 export default Users
