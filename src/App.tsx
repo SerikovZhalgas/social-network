@@ -8,12 +8,6 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 
-
-/*type AppPropsType = {
-    //store: ReduxStoreType
-    //dispatch:(action:ActionsTypes)=>void
-}*/
-
 const App = () => {
 
     return (
@@ -23,11 +17,7 @@ const App = () => {
             <div className="app-wrapper-conent">
                 <Route path={'/friends'} render={() => <Friends/>}/>
                 <Route path={'/dialogs'}
-                       render={() => <DialogsContainer
-                           /*store={props.store}*/
-                           //state={props.state.messagePage}
-                           //dispatch={props.dispatch}
-                       />}/>
+                       render={() => <DialogsContainer/>}/>
                 <Route path={'/profile'}
                        render={() => <Profile/>}
                 />

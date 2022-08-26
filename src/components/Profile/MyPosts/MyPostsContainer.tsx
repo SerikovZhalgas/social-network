@@ -1,4 +1,3 @@
-import React from "react";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/profile-reducer";
 import {AppStoreType} from "../../../Redux/redux-store";
 import MyPosts from "./MyPosts";
@@ -14,25 +13,6 @@ type MapDispatchPropsType = {
     addMyPost: ()=>void
 }
 export type  ProfilePagePropsType = MapStatePropsType & MapDispatchPropsType
-
-/*const MyPostsContainer = (props: MyPostsType) => {
-    let state = props.store.getState()
-
-    const addMyPost = () => {
-        props.store.dispatch(addPostActionCreator())
-    }
-    const onPostChange = (newText: string) => {
-        let action = updateNewPostTextActionCreator(newText)
-        props.store.dispatch(action)
-    }
-
-    return (<MyPosts
-        posts={state.profilePage.posts}
-        newPostText={state.profilePage.newPostText}
-        updateNewPostText={onPostChange}
-        addMyPost={addMyPost}
-    />);
-}*/
 
 let mapStateToProps = (state:AppStoreType):MapStatePropsType => {
     return {

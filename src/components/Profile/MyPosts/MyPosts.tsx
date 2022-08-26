@@ -13,7 +13,6 @@ const MyPosts = (props: ProfilePagePropsType) => {
     }
     const onPostChange = (e:ChangeEvent<HTMLTextAreaElement>)=>{
         const text = e.currentTarget.value
-        //props.updateNewPostText(e.currentTarget.value)
         props.updateNewPostText(text)
     }
 

@@ -14,23 +14,6 @@ type MapDispatchPropsType = {
 }
 export type  DialogsPagePropsType = MapStatePropsType & MapDispatchPropsType
 
-/*const DialogsContainer = (props: DialogsPropsType) => {
-    let state = props.store.getState().messagePage
-
-    const sendMessage = () => {
-        props.store.dispatch(sendMessageCreator())
-    }
-    const updateNewMessage = (body: string) => {
-        props.store.dispatch(updateNewMessageCreator(body))
-    }
-
-    return <Dialogs
-        messagePage={state}
-        sendMessage={sendMessage}
-        updateNewMessage={updateNewMessage}
-    />;
-};*/
-
 let mapStateToProps = (state:AppStoreType):MapStatePropsType => {
     return {
         messagePage: state.messagePage

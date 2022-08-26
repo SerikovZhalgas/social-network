@@ -22,9 +22,10 @@ const Users = (props: UsersType) => {
 
     return <div>
         <div>
-            {pages.map(p => {
+            {pages.map((p,index) => {
                 return <span
-                    className={props.currentPage == p ? styles.selectedPage : ''}
+                    key={index}
+                    className={props.currentPage === p ? styles.selectedPage : ''}
                     onClick={() => {
                         props.onPageChanged(p)
                     }}
