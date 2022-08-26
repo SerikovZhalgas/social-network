@@ -1,11 +1,16 @@
 import React from "react";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import {ProfilePageType} from "../../Redux/profile-reducer";
 
-const Profile = () => {
+type ProfileType = {
+    profile: ProfilePageType
+}
+
+const Profile = (props: ProfileType) => {
     return (
         <div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
         </div>
     );

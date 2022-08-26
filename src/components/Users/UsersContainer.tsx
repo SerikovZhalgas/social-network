@@ -14,6 +14,7 @@ import Users from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
 
 
+
 class UsersContainer extends React.Component<UsersPageType> {
     componentDidMount(): void {
         this.props.toggleIsFetching(true)
@@ -78,30 +79,6 @@ let mapStateToProps = (state: AppStoreType): MapStatePropsType => {
         isFetching: state.usersPage.isFetching
     }
 }
-
-/*let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
-    return {
-        follow: (userId: string) => {
-            dispatch(followAC(userId))
-        },
-        unFollow: (userId: string) => {
-            dispatch(unFollowAC(userId))
-        },
-        setUsers: (users: UserType[]) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (currentPage: number) => {
-            dispatch(setCurrentPageAC(currentPage))
-        },
-        setTotalUsersCount: (totalUsersCount: number) => {
-            dispatch(setTotalUsersCountAC(totalUsersCount))
-        },
-        toggleIsFetching: (isFetching: boolean) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        }
-    }
-}*/
-
 
 export default connect(mapStateToProps,
     {follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching})
