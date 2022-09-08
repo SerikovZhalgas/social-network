@@ -4,7 +4,7 @@ import {ProfilePageType} from "../../../Redux/profile-reducer";
 import {Preloader} from "../../common/Preloader/Preloader";
 
 type ProfileInfoType = {
-    profile: ProfilePageType
+    profile: ProfilePageType | null
 }
 
 const ProfileInfo = (props:ProfileInfoType) => {

@@ -1,5 +1,6 @@
 import {v1} from "uuid";
-import {ActionsTypes, DialogItemType, MessageType} from "./store";
+import {DialogItemType, MessageType} from "./store";
+import {AppActionType} from "./redux-store";
 
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE'
@@ -68,7 +69,7 @@ let initialState: InitialStateType = {
     newMessageBody: ''
 }
 
-const dialogsReducer = (state: InitialStateType = initialState, action: DialogsReducerAC): InitialStateType => {
+const dialogsReducer = (state: InitialStateType = initialState, action: AppActionType): InitialStateType => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
             return {
@@ -91,7 +92,7 @@ const dialogsReducer = (state: InitialStateType = initialState, action: DialogsR
             return state
     }
 }
-type DialogsReducerAC = ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageCreator>
+export type DialogsReducerAC = ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageCreator>
 export const sendMessageCreator = () => ({type: SEND_MESSAGE} as const)
 export const updateNewMessageCreator = (body: string) =>
     ({type: UPDATE_NEW_MESSAGE_BODY, body: body} as const)

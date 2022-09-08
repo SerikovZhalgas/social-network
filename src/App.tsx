@@ -7,6 +7,7 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import {LoginPage} from "./components/Login/LoginPage";
 
 const App = () => {
 
@@ -19,10 +20,13 @@ const App = () => {
                 <Route path={'/dialogs'}
                        render={() => <DialogsContainer/>}/>
                 <Route path={'/profile/:userId?'}
-                       render={() => <ProfileContainer/>}
+                       render={ ()=> <ProfileContainer />}
                 />
                 <Route path={'/users'}
                        render={() => <UsersContainer/>}
+                />
+                <Route path={'/login'}
+                       render={() => <LoginPage/>}
                 />
             </div>
         </div>

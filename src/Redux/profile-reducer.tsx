@@ -1,5 +1,8 @@
 import {v1} from "uuid";
 import {PropsType} from "./store";
+import {AppActionType, AppStoreType} from "./redux-store";
+import {usersAPI} from "../Api/api";
+import {ThunkAction, ThunkDispatch} from "redux-thunk";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -68,7 +71,7 @@ let initialState: InitialStateType = {
 }
 }*/
 
-const profileReducer = (state: InitialStateType = initialState, action: ProfileReducerAC): InitialStateType => {
+const profileReducer = (state: InitialStateType = initialState, action: AppActionType): InitialStateType => {
     switch (action.type) {
         case ADD_POST: {
             const newPost: PropsType = {
@@ -92,11 +95,25 @@ const profileReducer = (state: InitialStateType = initialState, action: ProfileR
             return state
     }
 }
-type ProfileReducerAC = ReturnType<typeof addPostActionCreator>
+export type ProfileReducerAC = ReturnType<typeof addPostActionCreator>
     | ReturnType<typeof updateNewPostTextActionCreator>
     | ReturnType<typeof setUserProfile>
+
+type ThunkType = ThunkAction<void, AppStoreType, unknown, AppActionType>;
+type ThunkDispatchUsers = ThunkDispatch<AppStoreType, unknown, AppActionType>;
+
 export const addPostActionCreator = () => ({type: ADD_POST} as const)
 export const setUserProfile = (profile: ProfilePageType) => ({type: SET_USER_PROFILE, profile} as const)
+
+export const getUserProfile = (userId: number)
+    : ThunkType => {
+    return (dispatch: ThunkDispatchUsers) => {
+        usersAPI.getProfileInfo(userId).then(data => {
+            dispatch(setUserProfile(data))
+        })
+    }
+}
+
 export const updateNewPostTextActionCreator = (text: string) =>
     ({type: UPDATE_NEW_POST_TEXT, newText: text} as const)
 

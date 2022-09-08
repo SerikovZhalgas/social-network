@@ -1,5 +1,6 @@
 import {v1} from "uuid";
-import {ActionsTypes, SidebarItemType} from "./store";
+import {SidebarItemType} from "./store";
+import {AppActionType} from "./redux-store";
 
 export type InitialStateType = {
     friends:SidebarItemType[]
@@ -30,9 +31,11 @@ let initialState:InitialStateType = {
     ]
 }
 
-const sidebarReducer = (state:InitialStateType=initialState,action:ActionsTypes):InitialStateType => {
+const sidebarReducer = (state:InitialStateType=initialState,action:AppActionType):InitialStateType => {
 
     return state
 }
+
+export type SidebarActionsTypes = ReturnType<any>
 
 export default sidebarReducer
