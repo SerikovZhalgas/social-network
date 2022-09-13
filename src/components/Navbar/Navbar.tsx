@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {SidebarPropsType} from "./NavbarContainer";
 
 const Navbar = (props: SidebarPropsType) => {
-    let friendsElements = props.sidebar.friends.map(f => <img src={f.avatar} className={s.friendImg} alt='Avatar'/>)
+    let friendsElements = props.sidebar.friends.map(f => <img key={f.id} src={f.avatar} className={s.friendImg} alt='Avatar'/>)
 
     return (
         <nav className={s.nav}>

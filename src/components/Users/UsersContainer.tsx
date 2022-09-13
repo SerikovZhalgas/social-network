@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ComponentType} from "react";
 import {connect} from "react-redux";
 import {
     follow,
@@ -11,6 +11,8 @@ import {
 import {AppStoreType} from "../../Redux/redux-store";
 import Users from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
+import {withAuthRedirect} from "../../hok/withAuthRedirect";
+import {compose} from "redux";
 
 
 class UsersContainer extends React.Component<UsersPageType> {
@@ -51,8 +53,8 @@ type MapStatePropsType = {
 type MapDispatchPropsType = {
     setCurrentPage: (currentPage: number) => void
     getUsers: (currentPage: number, pageSize: number) => void
-    follow:(userId:string)=>void
-    unFollow:(userId:string)=>void
+    follow: (userId: string) => void
+    unFollow: (userId: string) => void
 }
 
 export type UsersPageType = MapStatePropsType & MapDispatchPropsType
@@ -68,8 +70,10 @@ let mapStateToProps = (state: AppStoreType): MapStatePropsType => {
     }
 }
 
-export default connect(mapStateToProps,
-    {
-        setCurrentPage, toggleIsFollowingProgress, getUsers, follow, unFollow
-    })
-(UsersContainer)
+export default compose<ComponentType>(
+    withAuthRedirect,
+    connect(mapStateToProps,
+        {
+            setCurrentPage, toggleIsFollowingProgress, getUsers, follow, unFollow
+        })
+)(UsersContainer)
