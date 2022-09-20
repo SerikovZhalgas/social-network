@@ -2,13 +2,11 @@ import {v1} from "uuid";
 import {DialogItemType, MessageType} from "./store";
 import {AppActionType} from "./redux-store";
 
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
 export type InitialStateType = {
     messageData: MessageType[]
     dialogsData: DialogItemType[]
-    newMessageBody: string
 }
 
 let initialState: InitialStateType = {
@@ -66,21 +64,14 @@ let initialState: InitialStateType = {
             avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAPe1CYBenBgbZwWb48ifu7G4BodcYUy3eAyX1K5a-OnWpWN7XIUDmX2XJIoZmRf3fZSo&usqp=CAU'
         }
     ],
-    newMessageBody: ''
 }
 
 const dialogsReducer = (state: InitialStateType = initialState, action: AppActionType): InitialStateType => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            return {
-                ...state,
-                newMessageBody: action.body
-            }
         case SEND_MESSAGE:
-            const body = state.newMessageBody
+            const body = action.newMessageBody
             return  {
                 ...state,
-                newMessageBody:'',
                 messageData:[...state.messageData, {
                     id: v1(),
                     message: body,
@@ -92,9 +83,7 @@ const dialogsReducer = (state: InitialStateType = initialState, action: AppActio
             return state
     }
 }
-export type DialogsReducerAC = ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageCreator>
-export const sendMessageCreator = () => ({type: SEND_MESSAGE} as const)
-export const updateNewMessageCreator = (body: string) =>
-    ({type: UPDATE_NEW_MESSAGE_BODY, body: body} as const)
+export type DialogsReducerAC = ReturnType<typeof sendMessageCreator>
+export const sendMessageCreator = (newMessageBody: string) => ({type: SEND_MESSAGE, newMessageBody} as const)
 
 export default dialogsReducer

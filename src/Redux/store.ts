@@ -1,6 +1,6 @@
 import {v1} from "uuid";
-import profileReducer, {addPostActionCreator, updateNewPostTextActionCreator} from "./profile-reducer";
-import dialogsReducer, {sendMessageCreator, updateNewMessageCreator} from "./dialogs-reducer";
+import {addPostActionCreator} from "./profile-reducer";
+import {sendMessageCreator} from "./dialogs-reducer";
 
 export type PropsType = {
     id: string
@@ -52,8 +52,6 @@ export type StoreType = {
 }
 
 export type ActionsTypes = ReturnType<typeof addPostActionCreator>
-    | ReturnType<typeof updateNewPostTextActionCreator>
-    | ReturnType<typeof updateNewMessageCreator>
     | ReturnType<typeof sendMessageCreator>
 
 const store: StoreType = {

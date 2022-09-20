@@ -1,22 +1,18 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {DialogsPagePropsType} from "./DialogsContainer";
+import AddMessageForm, {DialogFormDataType} from "./AddMessageForm/AddMessageForm";
 
 const Dialogs = (props: DialogsPagePropsType) => {
     const state = props.messagePage
 
     const dialogsElements =  state.dialogsData.map(d => <DialogItem id={d.id} name={d.name} avatar={d.avatar}/>)
     const messageElements = state.messageData.map(m => <Message id={m.id} message={m.message} myMessage={m.myMessage} avatar={m.avatar}/>)
-    const newMessageBody = state.newMessageBody
 
-    const onSendMessageClick = () => {
-        props.sendMessage()
-    }
-    const onNewMessageChange = (e:ChangeEvent<HTMLTextAreaElement>) => {
-        const body = e.target.value
-        props.updateNewMessage(body)
+    const addNewMessage = (formData: DialogFormDataType) => {
+        props.sendMessage(formData.newMessageBody)
     }
 
     return (
@@ -26,12 +22,7 @@ const Dialogs = (props: DialogsPagePropsType) => {
             </div>
             <div className={s.messages}>
                 <div>{messageElements}</div>
-                <div>
-                    <div><textarea value={newMessageBody}
-                                   onChange={onNewMessageChange}
-                                   placeholder='enter yout message'/></div>
-                    <div><button onClick={onSendMessageClick}>Send</button></div>
-                </div>
+                <AddMessageForm onSubmit={addNewMessage}/>
             </div>
         </div>
     );
