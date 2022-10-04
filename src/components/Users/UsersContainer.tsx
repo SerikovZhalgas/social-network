@@ -11,7 +11,6 @@ import {
 import {AppStoreType} from "../../Redux/redux-store";
 import Users from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
-import {withAuthRedirect} from "../../hok/withAuthRedirect";
 import {compose} from "redux";
 
 
@@ -59,6 +58,16 @@ type MapDispatchPropsType = {
 
 export type UsersPageType = MapStatePropsType & MapDispatchPropsType
 
+/*let mapStateToProps = (state: AppStoreType): MapStatePropsType => {
+    return {
+        users: state.usersPage.users,
+        pageSize: state.usersPage.pageSize,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
+    }
+}*/
 let mapStateToProps = (state: AppStoreType): MapStatePropsType => {
     return {
         users: state.usersPage.users,
@@ -71,7 +80,6 @@ let mapStateToProps = (state: AppStoreType): MapStatePropsType => {
 }
 
 export default compose<ComponentType>(
-    withAuthRedirect,
     connect(mapStateToProps,
         {
             setCurrentPage, toggleIsFollowingProgress, getUsers, follow, unFollow

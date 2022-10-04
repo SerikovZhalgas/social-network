@@ -9,7 +9,7 @@
     /*grid-gap: 10px;*/
 }
 
-.app-wrapper-conent {
+.app-wrapper-content {
     grid-area: c;
     background-color: cornflowerblue;
 }
