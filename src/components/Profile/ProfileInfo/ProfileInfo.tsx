@@ -10,21 +10,18 @@ type ProfileInfoType = {
     updateUserStatus: (newStatus:string)=>void
 }
 
-const ProfileInfo = (props:ProfileInfoType) => {
-    if(!props.profile){
+const ProfileInfo = ({profile, status, updateUserStatus}:ProfileInfoType) => {
+    if(!profile){
         return <Preloader/>
     }
 
     return (
         <div>
-            {/*<div>
-                <img className={s.img} src="https://get-edu.kz/wp-content/uploads/2020/04/helpbox-contact.jpg" alt='wow'/>
-            </div>*/}
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large} alt="ava"/>
+                <img src={profile.photos.large} alt="ava"/>
                 <ProfileStatus
-                    status={props.status}
-                    updateUserStatus={props.updateUserStatus}
+                    status={status}
+                    updateUserStatus={updateUserStatus}
                 />
             </div>
         </div>

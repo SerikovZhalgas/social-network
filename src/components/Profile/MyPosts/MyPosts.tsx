@@ -12,7 +12,8 @@ type FormDataType = {
 
 const maxLength10 = maxLengthCreator(10)
 
-const MyPosts = (props: ProfilePagePropsType) => {
+const MyPosts = React.memo((props: ProfilePagePropsType) => {
+    console.log('MyPostsRendered')
     const state = props.profilePage
 
     let PostsElements = state.posts.map(p => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>)
@@ -32,7 +33,7 @@ const MyPosts = (props: ProfilePagePropsType) => {
             </div>
         </div>
     );
-}
+})
 
 const AddNewPostForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
     return (

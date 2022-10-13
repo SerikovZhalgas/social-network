@@ -2,7 +2,7 @@ import {AppActionType, AppThunk} from "./redux-store";
 import {authAPI} from "../Api/api";
 import {stopSubmit} from "redux-form";
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'samurai-network/auth/SET_USER_DATA';
 
 export type InitialStateType = {
     userId: null | number
@@ -37,40 +37,31 @@ export const setAuthUserData = (userId: number | null, email: string | null, log
         payload: {userId, email, login, isAuth}
     } as const)
 
-export const getAuthUserData = ()
-    : AppThunk => {
-    return (dispatch) => {
-        return authAPI.me().then(res => {
-            if (res.data.resultCode === 0) {
-                let {id, login, email} = res.data.data
-                dispatch(setAuthUserData(id, email, login, true))
-            }
-        })
+export const getAuthUserData = (): AppThunk => async (dispatch) => {
+    let response = await authAPI.me()
+
+    if (response.data.resultCode === 0) {
+        let {id, login, email} = response.data.data
+        dispatch(setAuthUserData(id, email, login, true))
     }
 }
 
-export const login = (email: string, password: string, rememberMe: boolean)
-    : AppThunk => {
-    return (dispatch) => {
-        authAPI.login(email, password, rememberMe).then(res => {
-            if (res.data.resultCode === 0) {
-                dispatch(getAuthUserData())
-            }else{
-                let message = res.data.messages.length > 0 ? res.data.messages[0] : 'Some error'
-                dispatch(stopSubmit('login', {_error: message}))
-            }
-        })
+export const login = (email: string, password: string, rememberMe: boolean): AppThunk => async (dispatch) => {
+    let response = await authAPI.login(email, password, rememberMe)
+
+    if (response.data.resultCode === 0) {
+        dispatch(getAuthUserData())
+    } else {
+        let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
+        dispatch(stopSubmit('login', {_error: message}))
     }
 }
 
-export const logout = ()
-    : AppThunk => {
-    return (dispatch) => {
-        authAPI.logout().then(res => {
-            if (res.data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null, false))
-            }
-        })
+export const logout = (): AppThunk => async (dispatch) => {
+    let response = await authAPI.logout()
+
+    if (response.data.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false))
     }
 }
 
