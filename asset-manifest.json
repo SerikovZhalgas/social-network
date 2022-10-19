@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/git@github.com:SerikovZhalgas/social-network/static/css/main.366eacab.css",
+    "main.js": "/git@github.com:SerikovZhalgas/social-network/static/js/main.621a769b.js",
+    "static/css/187.be31636c.chunk.css": "/git@github.com:SerikovZhalgas/social-network/static/css/187.be31636c.chunk.css",
+    "static/js/187.c717bca6.chunk.js": "/git@github.com:SerikovZhalgas/social-network/static/js/187.c717bca6.chunk.js",
+    "static/css/95.37df7912.chunk.css": "/git@github.com:SerikovZhalgas/social-network/static/css/95.37df7912.chunk.css",
+    "static/js/95.d4292c0d.chunk.js": "/git@github.com:SerikovZhalgas/social-network/static/js/95.d4292c0d.chunk.js",
+    "static/css/587.ce7b932e.chunk.css": "/git@github.com:SerikovZhalgas/social-network/static/css/587.ce7b932e.chunk.css",
+    "static/js/587.39cba7e6.chunk.js": "/git@github.com:SerikovZhalgas/social-network/static/js/587.39cba7e6.chunk.js",
+    "static/css/518.72538b6e.chunk.css": "/git@github.com:SerikovZhalgas/social-network/static/css/518.72538b6e.chunk.css",
+    "static/js/518.5dddc704.chunk.js": "/git@github.com:SerikovZhalgas/social-network/static/js/518.5dddc704.chunk.js",
+    "static/js/615.01640f9f.chunk.js": "/git@github.com:SerikovZhalgas/social-network/static/js/615.01640f9f.chunk.js",
+    "static/media/Preloader.gif": "/git@github.com:SerikovZhalgas/social-network/static/media/Preloader.f08599dad08dbb8648c9.gif",
+    "static/media/anonymous-user-flat-icon-vector-18958259.png": "/git@github.com:SerikovZhalgas/social-network/static/media/anonymous-user-flat-icon-vector-18958259.0cacfde43ad9f20a156f.png",
+    "index.html": "/git@github.com:SerikovZhalgas/social-network/index.html",
+    "main.366eacab.css.map": "/git@github.com:SerikovZhalgas/social-network/static/css/main.366eacab.css.map",
+    "main.621a769b.js.map": "/git@github.com:SerikovZhalgas/social-network/static/js/main.621a769b.js.map",
+    "187.be31636c.chunk.css.map": "/git@github.com:SerikovZhalgas/social-network/static/css/187.be31636c.chunk.css.map",
+    "187.c717bca6.chunk.js.map": "/git@github.com:SerikovZhalgas/social-network/static/js/187.c717bca6.chunk.js.map",
+    "95.37df7912.chunk.css.map": "/git@github.com:SerikovZhalgas/social-network/static/css/95.37df7912.chunk.css.map",
+    "95.d4292c0d.chunk.js.map": "/git@github.com:SerikovZhalgas/social-network/static/js/95.d4292c0d.chunk.js.map",
+    "587.ce7b932e.chunk.css.map": "/git@github.com:SerikovZhalgas/social-network/static/css/587.ce7b932e.chunk.css.map",
+    "587.39cba7e6.chunk.js.map": "/git@github.com:SerikovZhalgas/social-network/static/js/587.39cba7e6.chunk.js.map",
+    "518.72538b6e.chunk.css.map": "/git@github.com:SerikovZhalgas/social-network/static/css/518.72538b6e.chunk.css.map",
+    "518.5dddc704.chunk.js.map": "/git@github.com:SerikovZhalgas/social-network/static/js/518.5dddc704.chunk.js.map",
+    "615.01640f9f.chunk.js.map": "/git@github.com:SerikovZhalgas/social-network/static/js/615.01640f9f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.366eacab.css",
+    "static/js/main.621a769b.js"
+  ]
+}
