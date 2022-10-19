@@ -34,7 +34,7 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, err
 
 const LoginReduxForm = reduxForm<FormDataType>({form:'login'})(LoginForm)
 
-export const Login = () => {
+const Login = () => {
 
     const isAuth = useAppSelector(state => state.auth.isAuth)
     const dispatch = useAppDispatch()
@@ -52,3 +52,5 @@ export const Login = () => {
         <LoginReduxForm onSubmit={onSubmit}/>
     </div>
 }
+
+export default Login
