@@ -5,3 +5,7 @@
 .img{
     width: 800px;
 }
+
+.mainPhoto{
+    max-width: 200px;
+}
