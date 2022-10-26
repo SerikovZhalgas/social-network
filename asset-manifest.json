@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/SerikovZhalgas/social-network/static/css/main.366eacab.css",
-    "main.js": "/SerikovZhalgas/social-network/static/js/main.b810823e.js",
+    "main.js": "/SerikovZhalgas/social-network/static/js/main.e08e458b.js",
     "static/css/187.be31636c.chunk.css": "/SerikovZhalgas/social-network/static/css/187.be31636c.chunk.css",
     "static/js/187.c717bca6.chunk.js": "/SerikovZhalgas/social-network/static/js/187.c717bca6.chunk.js",
     "static/css/95.37df7912.chunk.css": "/SerikovZhalgas/social-network/static/css/95.37df7912.chunk.css",
     "static/js/95.d4292c0d.chunk.js": "/SerikovZhalgas/social-network/static/js/95.d4292c0d.chunk.js",
-    "static/css/587.ce7b932e.chunk.css": "/SerikovZhalgas/social-network/static/css/587.ce7b932e.chunk.css",
-    "static/js/587.39cba7e6.chunk.js": "/SerikovZhalgas/social-network/static/js/587.39cba7e6.chunk.js",
+    "static/css/587.ece14668.chunk.css": "/SerikovZhalgas/social-network/static/css/587.ece14668.chunk.css",
+    "static/js/587.523ca05b.chunk.js": "/SerikovZhalgas/social-network/static/js/587.523ca05b.chunk.js",
     "static/css/518.72538b6e.chunk.css": "/SerikovZhalgas/social-network/static/css/518.72538b6e.chunk.css",
     "static/js/518.5dddc704.chunk.js": "/SerikovZhalgas/social-network/static/js/518.5dddc704.chunk.js",
     "static/js/615.01640f9f.chunk.js": "/SerikovZhalgas/social-network/static/js/615.01640f9f.chunk.js",
@@ -15,19 +15,19 @@
     "static/media/anonymous-user-flat-icon-vector-18958259.png": "/SerikovZhalgas/social-network/static/media/anonymous-user-flat-icon-vector-18958259.0cacfde43ad9f20a156f.png",
     "index.html": "/SerikovZhalgas/social-network/index.html",
     "main.366eacab.css.map": "/SerikovZhalgas/social-network/static/css/main.366eacab.css.map",
-    "main.b810823e.js.map": "/SerikovZhalgas/social-network/static/js/main.b810823e.js.map",
+    "main.e08e458b.js.map": "/SerikovZhalgas/social-network/static/js/main.e08e458b.js.map",
     "187.be31636c.chunk.css.map": "/SerikovZhalgas/social-network/static/css/187.be31636c.chunk.css.map",
     "187.c717bca6.chunk.js.map": "/SerikovZhalgas/social-network/static/js/187.c717bca6.chunk.js.map",
     "95.37df7912.chunk.css.map": "/SerikovZhalgas/social-network/static/css/95.37df7912.chunk.css.map",
     "95.d4292c0d.chunk.js.map": "/SerikovZhalgas/social-network/static/js/95.d4292c0d.chunk.js.map",
-    "587.ce7b932e.chunk.css.map": "/SerikovZhalgas/social-network/static/css/587.ce7b932e.chunk.css.map",
-    "587.39cba7e6.chunk.js.map": "/SerikovZhalgas/social-network/static/js/587.39cba7e6.chunk.js.map",
+    "587.ece14668.chunk.css.map": "/SerikovZhalgas/social-network/static/css/587.ece14668.chunk.css.map",
+    "587.523ca05b.chunk.js.map": "/SerikovZhalgas/social-network/static/js/587.523ca05b.chunk.js.map",
     "518.72538b6e.chunk.css.map": "/SerikovZhalgas/social-network/static/css/518.72538b6e.chunk.css.map",
     "518.5dddc704.chunk.js.map": "/SerikovZhalgas/social-network/static/js/518.5dddc704.chunk.js.map",
     "615.01640f9f.chunk.js.map": "/SerikovZhalgas/social-network/static/js/615.01640f9f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.366eacab.css",
-    "static/js/main.b810823e.js"
+    "static/js/main.e08e458b.js"
   ]
 }
