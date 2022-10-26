@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SerikovZhalgas/social-network/static/css/main.366eacab.css",
-    "main.js": "/SerikovZhalgas/social-network/static/js/main.e08e458b.js",
+    "main.js": "/SerikovZhalgas/social-network/static/js/main.ae0ef787.js",
     "static/css/187.be31636c.chunk.css": "/SerikovZhalgas/social-network/static/css/187.be31636c.chunk.css",
     "static/js/187.c717bca6.chunk.js": "/SerikovZhalgas/social-network/static/js/187.c717bca6.chunk.js",
     "static/css/95.37df7912.chunk.css": "/SerikovZhalgas/social-network/static/css/95.37df7912.chunk.css",
@@ -15,7 +15,7 @@
     "static/media/anonymous-user-flat-icon-vector-18958259.png": "/SerikovZhalgas/social-network/static/media/anonymous-user-flat-icon-vector-18958259.0cacfde43ad9f20a156f.png",
     "index.html": "/SerikovZhalgas/social-network/index.html",
     "main.366eacab.css.map": "/SerikovZhalgas/social-network/static/css/main.366eacab.css.map",
-    "main.e08e458b.js.map": "/SerikovZhalgas/social-network/static/js/main.e08e458b.js.map",
+    "main.ae0ef787.js.map": "/SerikovZhalgas/social-network/static/js/main.ae0ef787.js.map",
     "187.be31636c.chunk.css.map": "/SerikovZhalgas/social-network/static/css/187.be31636c.chunk.css.map",
     "187.c717bca6.chunk.js.map": "/SerikovZhalgas/social-network/static/js/187.c717bca6.chunk.js.map",
     "95.37df7912.chunk.css.map": "/SerikovZhalgas/social-network/static/css/95.37df7912.chunk.css.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.366eacab.css",
-    "static/js/main.e08e458b.js"
+    "static/js/main.ae0ef787.js"
   ]
 }
