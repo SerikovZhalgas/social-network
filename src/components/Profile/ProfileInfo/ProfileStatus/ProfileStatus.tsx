@@ -37,6 +37,7 @@ const ProfileStatus = (props: ProfileStatusType) => {
                 </div>
                 :
                 <div>
+                    <b>Status: </b>
                     <span onDoubleClick={onDoubleClick}>
                         {props.status}
                     </span>

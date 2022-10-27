@@ -1,7 +1,7 @@
 import React from 'react'
 import {InjectedFormProps, reduxForm} from "redux-form";
 import { required } from '../../utils/validators/validators';
-import {createField} from "../common/FormControls/FormControls";
+import {createField, Input} from "../common/FormControls/FormControls";
 import {login} from "../../Redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../Redux/hooks";
@@ -15,13 +15,13 @@ type FormDataType = {
     error: string
 }
 
-const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, error, ...restProps}) => {
+const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, error}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            {createField('Email', 'email', [required],{}, null)}
-            {createField('Password', 'password', [required],{type: 'password'}, null)}
-            {createField(null, 'rememberMe', [],{type: 'checkbox'}, 'remember me')}
+            {createField('Email', 'email', [required],Input,{}, null)}
+            {createField('Password', 'password', [required],Input,{type: 'password'}, null)}
+            {createField(null, 'rememberMe', [],Input,{type: 'checkbox'}, 'remember me')}
             {error && <div className={style.formSummaryError}>
                 {error}
             </div>}

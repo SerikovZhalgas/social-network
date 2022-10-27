@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 type MapStatePropsForRedirectType = {
     isAuth: boolean
 }
+
 let mapStateToPropsForRedirect = (state: AppStoreType): MapStatePropsForRedirectType => {
     return {
         isAuth: state.auth.isAuth

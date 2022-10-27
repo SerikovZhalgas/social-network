@@ -1,4 +1,5 @@
 import axios from "axios";
+import {ProfilePageType} from "../Redux/profile-reducer";
 
 const instance = axios.create({
     withCredentials: true,
@@ -21,14 +22,14 @@ export const usersAPI = {
     followPost (userId: string) {
         return instance.post(`follow/${userId}`).then(response=>response.data)
     },
-    getProfileInfo (userId:number) {
+    getProfileInfo (userId:number | null) {
         console.warn('Obsolete method. Please profileAPI object')
         return profileAPI.getProfileInfo(userId)
     }
 }
 
 export const profileAPI = {
-    getProfileInfo (userId:number) {
+    getProfileInfo (userId:number | null) {
         return instance.get(`profile/`+ userId)
             .then(response=>response.data)
     },
@@ -46,6 +47,9 @@ export const profileAPI = {
                 'Content-type': 'multipart/form-data'
             }
         })
+    },
+    saveProfile (profile: ProfilePageType){
+        return instance.put(`profile`, profile)
     }
 }
 

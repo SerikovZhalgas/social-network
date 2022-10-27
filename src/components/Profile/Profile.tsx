@@ -9,6 +9,7 @@ type ProfileType = {
     status: string
     updateUserStatus:(newStatus:string)=>void
     savePhoto: (file: File)=>void
+    saveProfile: (formData: Partial<ProfilePageType>)=>Promise<void>
 }
 
 const Profile = (props: ProfileType) => {
@@ -20,6 +21,7 @@ const Profile = (props: ProfileType) => {
                 profile={props.profile}
                 updateUserStatus={props.updateUserStatus}
                 savePhoto={props.savePhoto}
+                saveProfile={props.saveProfile}
             />
             <MyPostsContainer/>
         </div>

@@ -16,7 +16,7 @@ const MyPosts = React.memo((props: ProfilePagePropsType) => {
     console.log('MyPostsRendered')
     const state = props.profilePage
 
-    let PostsElements = state.posts.map(p => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>)
+    let PostsElements = state.posts.map((p, i) => <Post key={i} id={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     const addNewPostText = (formData: FormDataType) => {
         props.addMyPost(formData.newPostText)

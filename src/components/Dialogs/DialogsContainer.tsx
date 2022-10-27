@@ -1,4 +1,4 @@
-import React, {ComponentType} from 'react';
+import {ComponentType} from 'react';
 import {InitialStateType, sendMessageCreator} from "../../Redux/dialogs-reducer";
 import {AppStoreType} from "../../Redux/redux-store";
 import Dialogs from "./Dialogs";
@@ -26,7 +26,6 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
         }
     }
 }
-
 
 export default compose<ComponentType>(
     connect(mapStateToProps, mapDispatchToProps),
