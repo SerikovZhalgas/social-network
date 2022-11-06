@@ -13,15 +13,24 @@ type FormDataType = {
     password: string
     rememberMe: boolean
     error: string
+    captcha: null
 }
 
-const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, error}) => {
+type LoginPageType = {
+    captchaUrl: null | string
+}
+
+const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginPageType> & LoginPageType> = ({handleSubmit, error, captchaUrl}) => {
 
     return (
         <form onSubmit={handleSubmit}>
             {createField('Email', 'email', [required],Input,{}, null)}
             {createField('Password', 'password', [required],Input,{type: 'password'}, null)}
             {createField(null, 'rememberMe', [],Input,{type: 'checkbox'}, 'remember me')}
+
+            {captchaUrl && <img src={captchaUrl} alt="captcha"/>}
+            {captchaUrl && createField("Symbols from image", 'captcha', [required],Input,{})}
+
             {error && <div className={style.formSummaryError}>
                 {error}
             </div>}
@@ -32,16 +41,17 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, err
     )
 }
 
-const LoginReduxForm = reduxForm<FormDataType>({form:'login'})(LoginForm)
+const LoginReduxForm = reduxForm<FormDataType, LoginPageType>({form:'login'})(LoginForm)
 
 const Login = () => {
 
     const isAuth = useAppSelector(state => state.auth.isAuth)
+    const captchaUrl = useAppSelector(state => state.auth.captchaUrl)
     const dispatch = useAppDispatch()
 
     const onSubmit = (formData: FormDataType) => {
-        const {email, password, rememberMe} = {...formData}
-        dispatch(login(email, password, rememberMe))
+        const {email, password, rememberMe, captcha} = {...formData}
+        dispatch(login(email, password, rememberMe, captcha))
     }
     if(isAuth){
         return <Redirect to={'/profile'}/>
@@ -49,7 +59,7 @@ const Login = () => {
 
     return <div>
         <h1>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit}/>
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
     </div>
 }
 
