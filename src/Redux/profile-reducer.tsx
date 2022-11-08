@@ -134,10 +134,14 @@ export const getUserStatus = (userId: number): ThunkType => async (dispatch: Thu
 }
 
 export const updateUserStatus = (newStatus: string): ThunkType => async (dispatch: ThunkDispatchUsers) => {
-    let response = await profileAPI.updateStatus(newStatus)
+    try {
+        let response = await profileAPI.updateStatus(newStatus)
 
-    if (response.data.resultCode === 0) {
-        dispatch(setStatusProfile(newStatus))
+        if (response.data.resultCode === 0) {
+            dispatch(setStatusProfile(newStatus))
+        }
+    }catch (e) {
+        //
     }
 }
 
