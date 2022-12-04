@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import {Header} from "./Header";
 import {connect} from "react-redux";
 import {logout} from '../../Redux/auth-reducer'
 import {AppStoreType} from "../../Redux/redux-store";

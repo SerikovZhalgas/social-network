@@ -57,27 +57,6 @@ let initialState: InitialStateType = {
     profile: null as ProfilePageType | null,
     status: ''
 }
-/*{
-    aboutMe: '',
-        contacts: {
-    facebook: '',
-        website: '',
-        vk: '',
-        twitter: '',
-        instagram: '',
-        youtube: '',
-        github: '',
-        mainLink: ''
-},
-    lookingForAJob: false,
-        lookingForAJobDescription: '',
-    fullName: '',
-    userId: 1,
-    photos: {
-    small: '',
-        large: ''
-}
-}*/
 
 const profileReducer = (state: InitialStateType = initialState, action: AppActionType): InitialStateType => {
     switch (action.type) {

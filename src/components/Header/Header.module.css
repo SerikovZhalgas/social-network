@@ -1,16 +1,44 @@
 .header{
   grid-area: h;
-  background-color: green;
+  background-color: white;
 }
 
-.header img{
-  width: 20px;
+.down {
+  border: 1px white solid;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .loginBlock {
   float: right;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .loginBlock a{
-  color: white;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+}
+.loginBlock a:hover{
+  opacity: 50%;
+}
+
+.logo{
+  padding: 3px;
+  width: 100px;
+}
+
+.logOut{
+  border: none;
+  outline: none;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  font-family: Solway sans-serif;
+}
+.logOut:hover{
+  opacity: 50%;
+  color: cornflowerblue;
 }

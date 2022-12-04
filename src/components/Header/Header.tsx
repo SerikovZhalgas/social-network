@@ -1,6 +1,8 @@
 import React from "react";
 import s from './Header.module.css'
 import {NavLink} from "react-router-dom";
+import touch from '../../assets/images/Touch.png';
+import {PATH} from "../../App";
 
 type HeaderType = {
     login: string | null
@@ -8,22 +10,21 @@ type HeaderType = {
     logout: ()=> void
 }
 
-const Header = (props: HeaderType) => {
+export const Header = ({login, isAuth, logout}: HeaderType) => {
     return (
-        <header className={s.header}>
+        <header className={`${s.header} ${s.down}`}>
             <img
-                src="https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg"
+                src={touch}
                 alt='socialNetworkAvatar'
+                className={s.logo}
             />
 
             <div className={s.loginBlock}>
-                {props.isAuth
-                    ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
-                    : <NavLink to={'login'}>Login</NavLink>
+                {isAuth
+                    ? <div>{login} |<button onClick={logout} className={s.logOut}>Log out</button></div>
+                    : <NavLink to={PATH.LOGIN}>Login</NavLink>
                 }
             </div>
         </header>
     );
 };
-
-export default Header;

@@ -1,6 +1,6 @@
 import React, {ComponentType} from 'react';
 import './App.css';
-import {BrowserRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect, Provider} from "react-redux";
@@ -14,8 +14,18 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 const FriendsContainer = React.lazy(() => import('./components/Navbar/Friends/Friends'))
-
 const Login = React.lazy(() => import('./components/Login/LoginPage'))
+
+export const PATH = {
+    PROFILE: '/profile',
+    FRIENDS: '/friends',
+    DIALOGS:'/dialogs',
+    USERS:'/users',
+    LOGIN:'/login',
+    NEWS:'/news',
+    MUSIC:'/music',
+    SETTINGS:'/settings'
+}
 
 class App extends React.Component<AppType> {
 
@@ -35,16 +45,16 @@ class App extends React.Component<AppType> {
                 <div className="app-wrapper-content">
                     <Switch>
                         <Route exact path={'/'}
-                               render={()=><Redirect to={'/profile'}/>}/>
-                        <Route path={'/friends'}
+                               render={()=><Redirect to={PATH.PROFILE}/>}/>
+                        <Route path={PATH.FRIENDS}
                                render={withSuspense(FriendsContainer)}/>
-                        <Route path={'/dialogs'}
+                        <Route path={PATH.DIALOGS}
                                render={withSuspense(DialogsContainer)}/>
-                        <Route path={'/profile/:userId?'}
+                        <Route path={`${PATH.PROFILE}/:userId?`}
                                render={withSuspense(ProfileContainer)}/>
-                        <Route path={'/users'}
+                        <Route path={PATH.USERS}
                                render={withSuspense(()=><UsersContainer/>)}/>
-                        <Route path={'/login'}
+                        <Route path={PATH.LOGIN}
                                render={withSuspense(()=><Login/>)}/>
 
                         <Route path={'*'}
@@ -76,9 +86,9 @@ let AppContainer = compose<ComponentType>(
     connect(mapStateToProps, {initializeApp}))(App)
 
 export const SamuraiJSApp = () => {
-    return <BrowserRouter basename={process.env.PUBLIC_URL}>
+    return <HashRouter basename={process.env.PUBLIC_URL}>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 }
