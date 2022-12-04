@@ -10,7 +10,7 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
-export type InitialStateType = {
+export type UsersReducerType = {
     users: UserType[]
     pageSize: number,
     totalUsersCount: number
@@ -37,7 +37,7 @@ type LocationType = {
     country: string
 }
 
-let initialState: InitialStateType = {
+let initialState: UsersReducerType = {
     users: [],
     pageSize: 10,
     totalUsersCount: 0,
@@ -46,7 +46,7 @@ let initialState: InitialStateType = {
     followingInProgress: []
 }
 
-const usersReducer = (state: InitialStateType = initialState, action: AppActionType): InitialStateType => {
+const usersReducer = (state: UsersReducerType = initialState, action: AppActionType): UsersReducerType => {
     switch (action.type) {
         case FOLLOW:
             return {

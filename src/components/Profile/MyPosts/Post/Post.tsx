@@ -2,7 +2,7 @@ import React from "react";
 import s from './Post.module.css'
 import {PropsType} from "../../../../Redux/store";
 
-const Post = (props: PropsType) => {
+export const Post = (props: PropsType) => {
     return (
         <div className={s.posts}>
             <div className={s.item}>
@@ -16,4 +16,3 @@ const Post = (props: PropsType) => {
 
     );
 }
-export default Post;

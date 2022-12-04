@@ -11,3 +11,7 @@
     font-weight: bold;
     border-color: black;
 }
+
+.disable{
+    opacity: 30%;
+}

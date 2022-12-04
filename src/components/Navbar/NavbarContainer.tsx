@@ -1,20 +1,18 @@
 import {connect} from "react-redux";
-import {InitialStateType} from "../../Redux/sidebar-reducer";
 import {AppStoreType} from "../../Redux/redux-store";
-import Navbar from "./Navbar";
+import {Navbar} from "./Navbar";
+import {UserType} from "../../Redux/users-reducer";
 
 type MapStatePropsType = {
-    sidebar: InitialStateType
+    users: UserType[]
 }
 
 export type SidebarPropsType = MapStatePropsType
 
 let mapStateToProps = (state:AppStoreType):MapStatePropsType => {
     return {
-        sidebar: state.sidebar
+        users: state.usersPage.users
     }
 }
 
-const NavbarContainer = connect(mapStateToProps,{})(Navbar)
-
-export default NavbarContainer;
+export const NavbarContainer = connect(mapStateToProps,{})(Navbar)

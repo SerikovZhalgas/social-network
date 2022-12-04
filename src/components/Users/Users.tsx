@@ -1,7 +1,7 @@
 import React from "react";
 import {UserType} from "../../Redux/users-reducer";
 import {Paginator} from "../common/Paginator/Paginator";
-import User from "./User";
+import {User} from "./User";
 
 type UsersType = {
     totalUsersCount: number
@@ -12,9 +12,10 @@ type UsersType = {
     followingInProgress: Array<string>
     follow: (userId: string) => void
     unFollow: (userId: string) => void
+    isFetching: boolean
 }
 
-const Users = ({
+export const Users = ({
                    totalUsersCount,
                    pageSize,
                    currentPage,
@@ -25,12 +26,11 @@ const Users = ({
 
     return <div>
         <Paginator currentPage={currentPage} onPageChanged={onPageChanged} pageSize={pageSize}
-                   totalItemsCount={totalUsersCount} portionSize={10}/>
+                   totalItemsCount={totalUsersCount} portionSize={10} isFetching={props.isFetching}/>
         {users.map(u => <User user={u}
-                                 followingInProgress={props.followingInProgress}
-                                 follow={props.follow}
-                                 unFollow={props.unFollow}/>)}
+                              followingInProgress={props.followingInProgress}
+                              follow={props.follow}
+                              unFollow={props.unFollow}
+                              isFetching={props.isFetching}/>)}
     </div>
 }
-
-export default Users

@@ -1,6 +1,6 @@
 import React from "react";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
+import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {ProfilePageType} from "../../Redux/profile-reducer";
 
 type ProfileType = {
@@ -12,7 +12,7 @@ type ProfileType = {
     saveProfile: (formData: Partial<ProfilePageType>)=>Promise<void>
 }
 
-const Profile = (props: ProfileType) => {
+export const Profile = (props: ProfileType) => {
     return (
         <div>
             <ProfileInfo
@@ -27,4 +27,3 @@ const Profile = (props: ProfileType) => {
         </div>
     );
 }
-export default Profile;

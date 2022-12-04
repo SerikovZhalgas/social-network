@@ -15,11 +15,11 @@ type ProfileInfoType = {
     saveProfile: (formData: Partial<ProfilePageType>) => Promise<void>
 }
 
-const ProfileInfo = ({isOwner, profile, status, updateUserStatus, savePhoto, saveProfile}: ProfileInfoType) => {
+export const ProfileInfo = ({isOwner, profile, status, updateUserStatus, savePhoto, saveProfile}: ProfileInfoType) => {
     const [editMode, setEditMode] = useState(false)
 
     if (!profile) {
-        return <Preloader/>
+        return <div className={s.preloader}><Preloader/></div>
     }
 
     const mainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +36,7 @@ const ProfileInfo = ({isOwner, profile, status, updateUserStatus, savePhoto, sav
 
     return (
         <div>
-            <div className={s.descriptionBlock}>
+            <div className={`${s.descriptionBlock} ${!profile && s.disable}`}>
                 <img src={profile.photos.large || userPhoto} alt="ava" className={s.mainPhoto}/>
                 {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
 
@@ -95,5 +95,3 @@ type ContactType = {
 const Contact = ({contactTitle, contactValue}: ContactType) => {
     return <div className={s.contact}><b>{contactTitle}</b>: {contactValue}</div>
 }
-
-export default ProfileInfo;

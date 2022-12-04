@@ -13,3 +13,16 @@
     grid-area: c;
     background-color: rgb(150,225,227);
 }
+
+.preloader{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disable{
+    opacity: 30%;
+}

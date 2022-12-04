@@ -16,31 +16,3 @@
 .item a.activeLink{
   color: white;
 }
-
-.itemFriends{
-  margin-top: 30px;
-}
-
-.itemFriends a{
-  text-decoration: none;
-}
-
-.friendTitle{
-  display: flex;
-  justify-content:center;
-  color: white;
-
-}
-
-.friendItem{
-  display: flex;
-  justify-content: center;
-
-}
-
-.friendImg{
-  width: 30px;
-  margin: 5px;
-  border-radius: 100px;
-  align-self: center;
-}

@@ -5,7 +5,7 @@ import Message from "./Message/Message";
 import {DialogsPagePropsType} from "./DialogsContainer";
 import AddMessageForm, {DialogFormDataType} from "./AddMessageForm/AddMessageForm";
 
-const Dialogs = (props: DialogsPagePropsType) => {
+export const Dialogs = (props: DialogsPagePropsType) => {
     const state = props.messagePage
 
     const dialogsElements =  state.dialogsData.map(d => <DialogItem id={d.id} name={d.name} avatar={d.avatar}/>)
@@ -27,5 +27,3 @@ const Dialogs = (props: DialogsPagePropsType) => {
         </div>
     );
 };
-
-export default Dialogs;

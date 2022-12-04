@@ -1,5 +1,5 @@
 import React, {ComponentType} from "react";
-import Profile from "./Profile";
+import {Profile} from "./Profile";
 import {connect} from "react-redux";
 import {AppStoreType} from "../../Redux/redux-store";
 import {

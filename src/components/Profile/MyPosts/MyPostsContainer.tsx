@@ -1,6 +1,6 @@
 import {addPostActionCreator} from "../../../Redux/profile-reducer";
 import {AppStoreType} from "../../../Redux/redux-store";
-import MyPosts from "./MyPosts";
+import {MyPosts} from "./MyPosts";
 import {connect} from "react-redux";
 import {InitialStateType} from "../../../Redux/profile-reducer";
 import {Dispatch} from "redux";
@@ -26,5 +26,4 @@ let mapDispatchToProps = (dispatch:Dispatch): MapDispatchPropsType => {
     }
 }
 
-const MyPostsContainer = connect(mapStateToProps,mapDispatchToProps)(MyPosts)
-export default MyPostsContainer;
+export const MyPostsContainer = connect(mapStateToProps,mapDispatchToProps)(MyPosts)

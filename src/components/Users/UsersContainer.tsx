@@ -8,7 +8,7 @@ import {
     UserType
 } from "../../Redux/users-reducer";
 import {AppStoreType} from "../../Redux/redux-store";
-import Users from "./Users";
+import {Users} from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
 import {compose} from "redux";
 import {
@@ -19,7 +19,7 @@ import {
     getUsers,
     getUsersTotalCount
 } from "../../Redux/users-selectors";
-
+import s from './UsersContainer.module.css'
 
 class UsersContainer extends React.Component<UsersPageType> {
     componentDidMount() {
@@ -35,7 +35,7 @@ class UsersContainer extends React.Component<UsersPageType> {
 
     render(): React.ReactNode {
         return <>
-            {this.props.isFetching ? <Preloader/> : null}
+            {this.props.isFetching ? <div className={s.preloader}><Preloader/></div> : null}
             <Users
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -45,6 +45,7 @@ class UsersContainer extends React.Component<UsersPageType> {
                 onPageChanged={this.onPageChanged}
                 follow={this.props.follow}
                 unFollow={this.props.unFollow}
+                isFetching={this.props.isFetching}
             />
         </>
     }

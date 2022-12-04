@@ -8,9 +8,10 @@ type PaginatorType = {
     currentPage: number
     onPageChanged: (pageNumber: number) => void
     portionSize: number
+    isFetching: boolean
 }
 
-export const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}: PaginatorType) => {
+export const Paginator = ({isFetching, totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}: PaginatorType) => {
     let pagesCount = Math.ceil(totalItemsCount / pageSize)
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
@@ -23,7 +24,7 @@ export const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged
     let rightPortionPageNumber = (portionNumber * portionSize)
 
     return (
-        <div className={styles.paginator}>
+        <div className={`${styles.paginator} ${isFetching && styles.disable}`}>
             {portionNumber > 1 &&
             <button onClick={()=>{setPortionNumber(portionNumber - 1)}}>PREV</button>
             }

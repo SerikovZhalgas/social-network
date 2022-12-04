@@ -9,11 +9,12 @@ type UserComponentType = {
     followingInProgress: Array<string>
     follow: (userId: string) => void
     unFollow: (userId: string) => void
+    isFetching: boolean
 }
 
-const User = ({user, followingInProgress, unFollow, follow}: UserComponentType) => {
+export const User = ({user, followingInProgress, unFollow, follow, isFetching}: UserComponentType) => {
 
-    return <div>
+    return <div className={`${isFetching && styles.disable}`}>
             <span>
                 <div>
                     <NavLink to={'/profile/' + user.id}>
@@ -48,5 +49,3 @@ const User = ({user, followingInProgress, unFollow, follow}: UserComponentType) 
             </span>
     </div>
 }
-
-export default User

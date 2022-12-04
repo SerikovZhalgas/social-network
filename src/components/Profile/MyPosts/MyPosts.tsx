@@ -1,6 +1,6 @@
 import React from "react";
 import s from './MyPosts.module.css'
-import Post from "./Post/Post";
+import {Post} from "./Post/Post";
 import {ProfilePagePropsType} from "./MyPostsContainer";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
@@ -12,7 +12,7 @@ type FormDataType = {
 
 const maxLength10 = maxLengthCreator(10)
 
-const MyPosts = React.memo((props: ProfilePagePropsType) => {
+export const MyPosts = React.memo((props: ProfilePagePropsType) => {
     console.log('MyPostsRendered')
     const state = props.profilePage
 
@@ -54,5 +54,3 @@ const AddNewPostForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
 }
 
 const AddNewPostTextRedux = reduxForm<FormDataType>({form:"ProfileAddNewPostForm"})(AddNewPostForm)
-
-export default MyPosts;
