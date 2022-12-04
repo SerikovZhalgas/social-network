@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Solway sans-serif;
+  font-family: "Solway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(150,225,227);

@@ -1,3 +1,16 @@
+.profileDataFormBlock{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.saveButtonBlock{
+    display: flex;
+    justify-content: right;
+}
+
 .contact{
     padding-left: 10px;
 }
@@ -6,4 +19,17 @@
     border: red 1px solid;
     padding: 5px;
     color: rosybrown;
+}
+
+.saveButton{
+    outline: none;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: 2px rgb(150,225,227) solid;
+    border-radius: 10px;
+    opacity: 50%;
+}
+.saveButton:hover{
+    opacity: 100%;
 }

@@ -9,12 +9,11 @@ export type PropsType = {
 }
 
 export const ProfileDataForm: React.FC<InjectedFormProps<ProfilePageType, PropsType> & PropsType> = ({
-                                                                                                                         handleSubmit,
-                                                                                                                         profile,
-                                                                                                                         error
-                                                                                                                     }) => {
-    return <form onSubmit={handleSubmit}>
-        <button>save</button>
+                                                                                                         handleSubmit,
+                                                                                                         profile,
+                                                                                                         error
+                                                                                                     }) => {
+    return <form onSubmit={handleSubmit} className={s.profileDataFormBlock}>
         {error && <div className={s.formSummaryError}>
             {error}
         </div>}
@@ -37,6 +36,11 @@ export const ProfileDataForm: React.FC<InjectedFormProps<ProfilePageType, PropsT
                 <b>{e}: </b> {createField(e, "contacts." + e, [], Input)}
             </div>
         })}
+        </div>
+        <div className={s.saveButtonBlock}>
+            <button className={s.saveButton}>
+                <b>Save</b>
+            </button>
         </div>
     </form>
 }

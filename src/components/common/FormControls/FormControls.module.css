@@ -14,3 +14,20 @@
     padding: 5px;
     color: rosybrown;
 }
+
+textarea {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+}
+
+.inputStyle{
+    width: 100%;
+    height: 40px;
+}
+
+.fieldStyle{
+    width: 400px;
+}

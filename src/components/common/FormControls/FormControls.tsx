@@ -21,17 +21,17 @@ export const Textarea = (props: any) => {
 
 export const Input = (props: any) => {
     const {input, meta, child, ...restProps} = props
-    return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
+    return <FormControl {...props}><input className={styles.inputStyle} {...input} {...restProps}/></FormControl>
 }
 
 export const createField = (placeholder: string | null, name: string, validators: Array<Validator>, component: (props: any) => JSX.Element,props ={}, text: string|null = '') => {
     return (
-        <div>
+        <div className={styles.fieldStyle}>
             <Field
                 placeholder={placeholder}
                 name={name}
                 validate={validators}
-                component={Input}
+                component={component}
                 {...props}
             />{text}
         </div>

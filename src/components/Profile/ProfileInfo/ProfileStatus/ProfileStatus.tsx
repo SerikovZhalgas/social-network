@@ -5,7 +5,7 @@ type ProfileStatusType = {
     updateUserStatus:(newStatus:string)=>void
 }
 
-const ProfileStatus = (props: ProfileStatusType) => {
+export const ProfileStatus = (props: ProfileStatusType) => {
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [inputValue, setInputValue] = useState<string>(props.status)
@@ -46,4 +46,3 @@ const ProfileStatus = (props: ProfileStatusType) => {
         </div>
     );
 }
-export default ProfileStatus;
