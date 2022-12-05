@@ -10,13 +10,13 @@ type FormDataType = {
     newPostText: string
 }
 
-const maxLength10 = maxLengthCreator(10)
+const maxLength10 = maxLengthCreator(100)
 
 export const MyPosts = React.memo((props: ProfilePagePropsType) => {
-    console.log('MyPostsRendered')
-    const state = props.profilePage
+    const posts = props.profilePage.posts
+    const profile = props.profilePage.profile
 
-    let PostsElements = state.posts.map((p, i) => <Post key={i} id={p.id} message={p.message} likesCount={p.likesCount}/>)
+    let PostsElements = posts.map((p, i) => <Post key={i} message={p.message} likesCount={p.likesCount} photo={profile?.photos.large}/>)
 
     const addNewPostText = (formData: FormDataType) => {
         props.addMyPost(formData.newPostText)
@@ -47,7 +47,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<FormDataType>> = (props) => {
                 />
             </div>
             <div>
-                <button>Add post</button>
+                <button className={s.addPost}>Add post</button>
             </div>
         </form>
     )

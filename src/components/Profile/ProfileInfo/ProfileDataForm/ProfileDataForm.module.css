@@ -1,14 +1,11 @@
 .profileDataFormBlock{
     width: 90%;
+    height: 500px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: start;
     flex-wrap: wrap;
-    gap: 50px;
-}
-
-.saveButtonBlock{
-    display: flex;
-    justify-content: right;
+    gap: 20px;
 }
 
 .contact{
@@ -21,15 +18,24 @@
     color: rosybrown;
 }
 
+.saveButtonBlock{
+    display: flex;
+    justify-content: right;
+}
+
 .saveButton{
     outline: none;
     width: 100px;
     height: 30px;
-    background-color: white;
+    background-color: rgb(150,225,227);
+    color: white;
     border: 2px rgb(150,225,227) solid;
-    border-radius: 10px;
+    border-radius: 4px;
     opacity: 50%;
 }
+
 .saveButton:hover{
     opacity: 100%;
+    border: 2px black solid;
+    color: black;
 }

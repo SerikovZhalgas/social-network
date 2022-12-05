@@ -16,6 +16,7 @@
 }
 
 textarea {
+    width: 100%;
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
@@ -25,9 +26,9 @@ textarea {
 
 .inputStyle{
     width: 100%;
-    height: 40px;
+    height: 20px;
 }
 
 .fieldStyle{
-    width: 400px;
+    width: 200px;
 }

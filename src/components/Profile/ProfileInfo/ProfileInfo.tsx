@@ -2,7 +2,6 @@ import React, {ChangeEvent, useRef, useState} from "react";
 import s from './ProfileInfo.module.css'
 import {ProfilePageType} from "../../../Redux/profile-reducer";
 import {Preloader} from "../../common/Preloader/Preloader";
-
 import userPhoto from './../../../assets/images/anonymous-user-flat-icon-vector-18958259.png'
 import {ProfileDataFormReduxForm} from "./ProfileDataForm/ProfileDataForm";
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
@@ -94,8 +93,9 @@ const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataType) => {
         }
         <div>
             <b>Contacts</b>: {Object.keys(profile.contacts).map((e, i) => {
-            return <Contact key={i} contactTitle={e}
-                            contactValue={profile.contacts[e as keyof typeof profile.contacts]}/>
+            return profile.contacts[e as keyof typeof profile.contacts] &&
+                <Contact key={i} contactTitle={e}
+                         contactValue={profile.contacts[e as keyof typeof profile.contacts]}/>
         })}
         </div>
     </div>
